@@ -157,6 +157,8 @@ Data subscription provide a reliable and handy way to retrieve documents from th
 - <del>List</del>
 - <del>Delete</del>
 
+' Install-Package RX-Main
+
 ---
 
 ## Using Data Subscriptions

@@ -28,9 +28,9 @@ namespace RavenDataSubscriptions
                 CreateDocuments(store);
                 DocumentStore = store;
 
-//                var id = CreateSubscription(store);
+                var id = CreateSubscription(store);
 
-                var id = 0L;
+/*                var id = 0L;
                 using (var session = store.OpenSession())
                 {
                     var subscriptionInfo = session.Load<SubscriptionInfo>(SubscriptionInfo.DocumentId);
@@ -43,7 +43,7 @@ namespace RavenDataSubscriptions
                     }
 
                     id = subscriptionInfo.SubscriptionId;
-                }
+                }*/
 
                 var orders = store.Subscriptions.Open<Order>(id, new SubscriptionConnectionOptions()
                 {

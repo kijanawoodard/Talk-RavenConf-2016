@@ -36,39 +36,142 @@ Contracting since 2010
 
 http://kijanawoodard.com
 
-NServiceBus forum
-
 RavenDB forum
 
+NServiceBus forum
+
 DDD/CQRS forum
+
+API Craft forum
+
+***
+
+## Using Data Subscriptions?
+
+' How many using?
+' Not much forum activity
+' Organize applications
+
+***
+
+## Solutions are new Problems
+
+***
+
+## System components should be <del>Composable</del> Disposable.
 
 ***
 
 ## What are Data Subscriptions?
 
+Data subscription provide a reliable and handy way to retrieve documents from the database for processing purposes by application jobs.
+
+' Persistent
+' Etag
+' At least once
 
 ***
 
-Creating Subscriptions
+## Using Data Subscriptions
+
+- Create
+- Open 
+- Subscribe
+- Release
+- List
+- Delete
 
 ***
 
-Opening Subscriptions
+## Alternatives to Data Subscriptions?
+
+- Query with Paging
+- Stream API
+- Changes API
+- Patch
+- Message queues
 
 ***
 
-Using Subscriptions
+## Using Data Subscriptions
 
-Events
+- Create
+- Open 
+- Subscribe
+- Release
+- List
+- **Delete**
+
+---
+
+## Using Data Subscriptions
+
+- Create
+- Open 
+- Subscribe
+- Release
+- **List**
+- <del>Delete</del>
+
+---
+
+## Using Data Subscriptions
+
+- **Create**
+- Open 
+- Subscribe
+- Release
+- <del>List</del>
+- <del>Delete</del>
+
+---
+
+## Using Data Subscriptions
+
+- <del>Create</del>
+- Open 
+- Subscribe
+- **Release**
+- <del>List</del>
+- <del>Delete</del>
+
+---
+
+## Using Data Subscriptions
+
+- <del>Create</del>
+- **Open** 
+- Subscribe
+- <del>Release</del>
+- <del>List</del>
+- <del>Delete</del>
+
+---
+
+## Using Data Subscriptions
+
+- <del>Create</del>
+- <del>Open</del>
+- **Subscribe**
+- <del>Release</del>
+- <del>List</del>
+- <del>Delete</del>
+
+---
+
+## Using Data Subscriptions
+
+- <del>Create</del>
+- <del>Open</del>
+- <del>Subscribe</del>
+- <del>Release</del>
+- <del>List</del>
+- <del>Delete</del>
 
 ***
 
-Releasing Subscriptions
+## What's Missing?
 
 ***
 
-Managing Subscriptions
-
-List 
-Delete
-
+## Questions?

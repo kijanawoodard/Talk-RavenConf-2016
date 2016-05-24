@@ -32,9 +32,9 @@ Contracting since 2010
 ***
 ## On the web
 
-@kijanawoodard
-
 http://kijanawoodard.com
+
+@kijanawoodard
 
 RavenDB forum
 
@@ -50,16 +50,6 @@ API Craft forum
 
 ' How many using?
 ' Not much forum activity
-
-***
-
-## A Solution is Problem Substitution
-
-***
-
-## System components should be <del>Composable</del> Disposable.
-
-' Organize applications
 
 ***
 
@@ -81,6 +71,16 @@ Data subscription provide a reliable and handy way to retrieve documents from th
 - Release
 - List
 - Delete
+
+***
+
+## A Solution is Problem Substitution
+
+***
+
+## System components should be <del>Composable</del> Disposable.
+
+' Organize applications
 
 ***
 

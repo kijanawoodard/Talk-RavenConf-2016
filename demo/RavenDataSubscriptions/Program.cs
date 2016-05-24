@@ -13,6 +13,7 @@ namespace RavenDataSubscriptions
         public string Id { get; set; }
         public string Customer { get; set; }
         public decimal Amount { get; set; }
+        public string Email { get; set; }
         public bool Processed { get; set; }
     }
 
@@ -28,25 +29,21 @@ namespace RavenDataSubscriptions
                 CreateDocuments(store);
                 DocumentStore = store;
 
-                var id = CreateSubscription(store);
-                #region :-)
-                /*              var id = 0L;
-                                using (var session = store.OpenSession())
-                                {
-                                    var subscriptionInfo = session.Load<SubscriptionInfo>(SubscriptionInfo.DocumentId);
-                                    if (subscriptionInfo == null)
-                                    {
-                                        subscriptionInfo = new SubscriptionInfo();
-                                        subscriptionInfo.SubscriptionId = CreateSubscription(store);
-                                        session.Store(subscriptionInfo);
-                                        session.SaveChanges();
-                                    }
+                var id = 0L;
+                using (var session = store.OpenSession())
+                {
+                    var subscriptionInfo = session.Load<SubscriptionInfo>(SubscriptionInfo.DocumentId);
+                    if (subscriptionInfo == null)
+                    {
+                        subscriptionInfo = new SubscriptionInfo();
+                        subscriptionInfo.SubscriptionId = CreateSubscription(store);
+                        session.Store(subscriptionInfo);
+                        session.SaveChanges();
+                    }
 
-                                    id = subscriptionInfo.SubscriptionId;
-                                }
-                */
-                #endregion
-
+                    id = subscriptionInfo.SubscriptionId;
+                }
+                
                 var orders = store.Subscriptions.Open<Order>(id, new SubscriptionConnectionOptions()
                 {
                     BatchOptions = new SubscriptionBatchOptions
@@ -139,21 +136,24 @@ namespace RavenDataSubscriptions
                 {
                     Id = "orders/1",
                     Customer = "John Doe",
-                    Amount = 10.01m
+                    Amount = 10.01m,
+                    Email = "john@doe.com"
                 });
 
                 session.Store(new Order
                 {
                     Id = "orders/2",
                     Customer = "Jane Doe",
-                    Amount = 10.02m
+                    Amount = 10.02m,
+                    Email = "jane@doe.com"
                 });
 
                 session.Store(new Order
                 {
                     Id = "orders/3",
                     Customer = "Fred Doe",
-                    Amount = 10.03m
+                    Amount = 10.03m,
+                    Email = "fred@doe.com"
                 });
 
                 /*for (int i = 4; i < 1000; i++)

@@ -9,7 +9,7 @@
 # Delving into Documents with Data Subscriptions
 
 ## RavenConf 2016
-May 23, 2016
+May 24, 2016
 
 ###Kijana Woodard
 

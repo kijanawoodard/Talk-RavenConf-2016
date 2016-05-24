@@ -50,15 +50,16 @@ API Craft forum
 
 ' How many using?
 ' Not much forum activity
-' Organize applications
 
 ***
 
-## Solutions are new Problems
+## A Solution is Problem Substitution
 
 ***
 
 ## System components should be <del>Composable</del> Disposable.
+
+' Organize applications
 
 ***
 
@@ -80,16 +81,6 @@ Data subscription provide a reliable and handy way to retrieve documents from th
 - Release
 - List
 - Delete
-
-***
-
-## Alternatives to Data Subscriptions?
-
-- Query with Paging
-- Stream API
-- Changes API
-- Patch
-- Message queues
 
 ***
 
@@ -135,6 +126,8 @@ Data subscription provide a reliable and handy way to retrieve documents from th
 - <del>List</del>
 - <del>Delete</del>
 
+' Single consumer
+
 ---
 
 ## Using Data Subscriptions
@@ -172,7 +165,24 @@ Data subscription provide a reliable and handy way to retrieve documents from th
 
 ***
 
+## Alternatives to Data Subscriptions?
+
+***
+
+## Alternatives to Data Subscriptions?
+
+- Query with Paging
+- Stream API
+- Changes API
+- Patch
+- Message queues
+
+***
+
 ## What's Missing?
+
+' Etag + document id in subscription info document
+' Write assurance
 
 ***
 

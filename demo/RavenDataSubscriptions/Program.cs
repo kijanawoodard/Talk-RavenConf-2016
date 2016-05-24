@@ -29,22 +29,24 @@ namespace RavenDataSubscriptions
                 DocumentStore = store;
 
                 var id = CreateSubscription(store);
+                #region :-)
+                /*              var id = 0L;
+                                using (var session = store.OpenSession())
+                                {
+                                    var subscriptionInfo = session.Load<SubscriptionInfo>(SubscriptionInfo.DocumentId);
+                                    if (subscriptionInfo == null)
+                                    {
+                                        subscriptionInfo = new SubscriptionInfo();
+                                        subscriptionInfo.SubscriptionId = CreateSubscription(store);
+                                        session.Store(subscriptionInfo);
+                                        session.SaveChanges();
+                                    }
 
-/*              var id = 0L;
-                using (var session = store.OpenSession())
-                {
-                    var subscriptionInfo = session.Load<SubscriptionInfo>(SubscriptionInfo.DocumentId);
-                    if (subscriptionInfo == null)
-                    {
-                        subscriptionInfo = new SubscriptionInfo();
-                        subscriptionInfo.SubscriptionId = CreateSubscription(store);
-                        session.Store(subscriptionInfo);
-                        session.SaveChanges();
-                    }
+                                    id = subscriptionInfo.SubscriptionId;
+                                }
+                */
+                #endregion
 
-                    id = subscriptionInfo.SubscriptionId;
-                }
-*/
                 var orders = store.Subscriptions.Open<Order>(id, new SubscriptionConnectionOptions()
                 {
                     BatchOptions = new SubscriptionBatchOptions

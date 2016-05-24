@@ -10,7 +10,7 @@
 *.userprefs
 
 # Build results
-
+.fake/
 [Dd]ebug/
 [Rr]elease/
 x64/

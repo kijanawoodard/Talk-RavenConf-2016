@@ -13,13 +13,15 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/reveal.min.css">
-    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
     <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
     <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
     <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
 			if( window.location.search.match( /print-pdf/gi ) ) {
@@ -33,6 +35,14 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
 </head>
 <body>
     <div class="reveal">
@@ -40,40 +50,184 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
             <section >
-
-<section >
-
 <h1>Delving into Documents with Data Subscriptions</h1>
-
 <h2>RavenConf 2016</h2>
-
 <p>May 23, 2016</p>
-
 <h3>Kijana Woodard</h3>
-
 </section>
-
-</section>
-
 <section >
-
-<section >
-
 <h2>Slides</h2>
-
 <p><a href="http://kijanawoodard.github.io/Talk-RavenConf-2016">http://kijanawoodard.github.io/Talk-RavenConf-2016</a></p>
-
 </section>
-
+<section >
+<h2>About Me</h2>
+<p>Live in Dallas, TX</p>
+<p>Programming professionally since 1996</p>
+<p>.Net since 1.0</p>
+<p>Contracting since 2010</p>
 </section>
-
+<section >
+<h2>On the web</h2>
+<p>@kijanawoodard</p>
+<p><a href="http://kijanawoodard.com">http://kijanawoodard.com</a></p>
+<p>RavenDB forum</p>
+<p>NServiceBus forum</p>
+<p>DDD/CQRS forum</p>
+<p>API Craft forum</p>
+</section>
+<section >
+<h2>Using Data Subscriptions?</h2>
+<aside class="notes">
+How many using?<br/>
+Not much forum activity<br/>
+</aside>
+</section>
+<section >
+<h2>A Solution is Problem Substitution</h2>
+</section>
+<section >
+<h2>System components should be <del>Composable</del> Disposable.</h2>
+<aside class="notes">
+Organize applications<br/>
+</aside>
+</section>
+<section >
+<h2>What are Data Subscriptions?</h2>
+<p>Data subscription provide a reliable and handy way to retrieve documents from the database for processing purposes by application jobs.</p>
+<aside class="notes">
+Persistent<br/>
+Etag<br/>
+At least once<br/>
+</aside>
+</section>
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li>Create</li>
+<li>Open</li>
+<li>Subscribe</li>
+<li>Release</li>
+<li>List</li>
+<li>Delete</li>
+</ul>
+</section>
+<section >
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li>Create</li>
+<li>Open</li>
+<li>Subscribe</li>
+<li>Release</li>
+<li>List</li>
+<li><strong>Delete</strong></li>
+</ul>
+</section>
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li>Create</li>
+<li>Open</li>
+<li>Subscribe</li>
+<li>Release</li>
+<li><strong>List</strong></li>
+<li><del>Delete</del></li>
+</ul>
+</section>
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li><strong>Create</strong></li>
+<li>Open</li>
+<li>Subscribe</li>
+<li>Release</li>
+<li><del>List</del></li>
+<li><del>Delete</del></li>
+</ul>
+</section>
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li><del>Create</del></li>
+<li>Open</li>
+<li>Subscribe</li>
+<li><strong>Release</strong></li>
+<li><del>List</del></li>
+<li><del>Delete</del></li>
+</ul>
+<aside class="notes">
+Single consumer<br/>
+</aside>
+</section>
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li><del>Create</del></li>
+<li><strong>Open</strong></li>
+<li>Subscribe</li>
+<li><del>Release</del></li>
+<li><del>List</del></li>
+<li><del>Delete</del></li>
+</ul>
+</section>
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li><del>Create</del></li>
+<li><del>Open</del></li>
+<li><strong>Subscribe</strong></li>
+<li><del>Release</del></li>
+<li><del>List</del></li>
+<li><del>Delete</del></li>
+</ul>
+<aside class="notes">
+Install-Package RX-Main<br/>
+</aside>
+</section>
+<section >
+<h2>Using Data Subscriptions</h2>
+<ul>
+<li><del>Create</del></li>
+<li><del>Open</del></li>
+<li><del>Subscribe</del></li>
+<li><del>Release</del></li>
+<li><del>List</del></li>
+<li><del>Delete</del></li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Alternatives to Data Subscriptions?</h2>
+</section>
+<section >
+<h2>Alternatives to Data Subscriptions?</h2>
+<ul>
+<li>Query with Paging</li>
+<li>Stream API</li>
+<li>Changes API</li>
+<li>Patch</li>
+<li>Message queues</li>
+</ul>
+</section>
+<section >
+<h2>What's Missing?</h2>
+<aside class="notes">
+Etag + document id in subscription info document<br/>
+Write assurance<br/>
+</aside>
+</section>
+<section >
+<h2>Questions?</h2>
+</section>
 
 
         </div>
     </div>
     <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.min.js"></script>
+    <script src="js/reveal.js"></script>
     <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
 
         // Full list of configuration options available here:
         // https://github.com/hakimel/reveal.js#configuration
@@ -83,7 +237,6 @@
             history: true,
             center: true,
 
-            theme: 'night', // available themes are in /css/theme
             transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
 
             // Parallax scrolling

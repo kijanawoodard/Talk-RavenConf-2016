@@ -74,6 +74,7 @@ namespace RavenDataSubscriptions
                 var configs = store.Subscriptions.GetSubscriptions(start: 0, take: 10);
 
                 Console.ReadLine();
+                orders.Dispose();
                 store.Subscriptions.Release(id);
                 store.Subscriptions.Delete(id);
                 Console.WriteLine("subscription deleted");
